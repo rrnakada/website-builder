@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rhine's Cobbler Shop | Master Shoe & Boot Repair Denver</title>
+
+    <!-- Open Graph Tags -->
+    <meta property="og:title" content="Rhine's Cobbler Shop | Master Shoe & Boot Repair">
+    <meta property="og:description" content="Denver's legacy master cobbler. Tommy Rhine offers 40+ years of expert leather repair and artisan craftsmanship.">
+    <meta property="og:type" content="website">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,600&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --primary: #2d1f16; /* Deep Bark Brown */
+            --accent: #b48a4d;  /* Muted Gold */
+            --bg: #fdfcf9;      /* Paper White */
+            --text: #333333;
+            --white: #ffffff;
+            --transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
+            line-height: 1.7;
+            overflow-x: hidden;
+            padding-top: 80px; /* Space for sticky nav */
+        }
+
+        h1, h2, h3 {
+            font-family: 'Playfair Display', serif;
+            color: var(--primary);
+            font-weight: 600;
+        }
+
+        /* --- Global Components --- */
+        .btn {
+            display: inline-block;
+            padding: 0.8rem 1.5rem;
+            background-color: var(--primary);
+            color: var(--white);
+            text-decoration: none;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            font-size: 0.75rem;
+            border-radius: 0;
+            transition: var(--transition);
+            border: 1px solid var(--primary);
+            white-space: nowrap;
+        }
+
+        .btn:hover {
+            background-color: var(--accent);
+            border-color: var(--accent);
+            color: var(--primary);
+        }
+
+        .section-padding {
+            padding: 8rem 1.5rem;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: var(--transition);
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* --- Navigation --- */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 1.5rem 2rem;
+            background-color: rgba(253, 252, 249, 0.98);
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid #eee;
+        }
+
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+            font-size: 1.2rem;
+            color: var(--primary);
+            text-decoration: none;
+            letter-spacing: -0.5px;
+        }
+
+        .nav-right {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+        }
+
+        .nav-links {
+            display: none;
+        }
+
+        /* --- Hero --- */
+        .hero {
+            height: 70vh;
+            min-height: 450px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            background-color: var(--bg);
+            position: relative;
+        }
+
+        /* Adjusted border to align better with navigation and whitespace */
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 5%;
+            left: 5%;
+            right: 5%;
+            bottom: 5%;
+            border: 1px solid #e2d9cd;
+            pointer-events: none;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            z-index: 1;
+            padding: 0 1rem;
+        }
+
+        .hero-content h1 {
+            font-size: clamp(2.5rem, 9vw, 5rem);
+            color: var(--primary);
+            line-height: 1.1;
+        }
+
+        /* --- Highlight Grid --- */
+        .highlight-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin-top: 4rem;
+        }
+
+        .highlight-item {
+            padding: 2.5rem 2rem;
+            background: #fff;
+            border: 1px solid #eee;
+            border-top: 4px solid var(--accent);
+            text-align: center;
+            transition: var(--transition);
+        }
+
+        .highlight-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.05);
+        }
+
+        .highlight-item span {
+            display: block;
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--accent);
+            font-weight: 600;
+            margin-bottom: 0.75rem;
+        }
+
+        .highlight-item h4 {
+            font-size: 1.1rem;
+            font-weight: 500;
+            color: var(--primary);
+            line-height: 1.4;
+        }
+
+        /* --- About Section --- */
+        .about-section {
+            background-color: var(--white);
+        }
+
+        .about-content {
+            text-align: center;
+            max-width: 850px;
+            margin: 0 auto;
+        }
+
+        .about-content h2 {
+            font-size: 2.8rem;
+            margin-bottom: 2.5rem;
+        }
+
+        .about-content p {
+            font-size: 1.15rem;
+            color: #4a4a4a;
+            margin-bottom: 1.5rem;
+        }
+
+        /* --- Services --- */
+        .services {
+            background-color: #f9f7f4;
+        }
+
+        .service-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 4rem;
+        }
+
+        .service-card {
+            padding: 3.5rem 3rem;
+            background: var(--white);
+            border: 1px solid #efefef;
+        }
+
+        .service-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1.2rem;
+            color: var(--primary);
+        }
+
+        .service-card p {
+            font-size: 0.95rem;
+            color: #666;
+        }
+
+        /* --- Testimonials --- */
+        .testimonials {
+            background: var(--primary);
+            color: var(--white);
+        }
+
+        .testimonials h2 {
+            color: var(--accent);
+            text-align: center;
+            margin-bottom: 5rem;
+            font-size: 2.8rem;
+        }
+
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 3.5rem;
+        }
+
+        .testimonial-item {
+            border-left: 1px solid rgba(180, 138, 77, 0.3);
+            padding-left: 2rem;
+        }
+
+        .testimonial-text {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.25rem;
+            font-style: italic;
+            margin-bottom: 2.5rem;
+            line-height: 1.8;
+            opacity: 0.95;
+        }
+
+        .testimonial-meta {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 2.5px;
+            color: var(--accent);
+            font-weight: 600;
+        }
+
+        /* --- Contact --- */
+        .contact-layout {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 5rem;
+        }
+
+        .contact-info h2 {
+            font-size: 2.8rem;
+            margin-bottom: 3.5rem;
+        }
+
+        .info-row {
+            margin-bottom: 3.5rem;
+        }
+
+        .info-row label {
+            display: block;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--accent);
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        .info-row p {
+            font-size: 1.25rem;
+            color: var(--text);
+        }
+
+        .map-frame {
+            height: 550px;
+            width: 100%;
+            background: #eee;
+            border: 1px solid #ddd;
+        }
+
+        .payment-notice {
+            display: inline-block;
+            padding: 1.25rem 2.5rem;
+            border: 1px solid var(--accent);
+            color: var(--primary);
+            font-weight: 600;
+            font-size: 0.9rem;
+            margin-top: 1rem;
+            letter-spacing: 1px;
+        }
+
+        /* --- Footer --- */
+        footer {
+            padding: 6rem 1.5rem;
+            text-align: center;
+            border-top: 1px solid #eee;
+        }
+
+        .footer-logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            color: var(--primary);
+        }
+
+        .footer-sub {
+            font-size: 0.8rem;
+            opacity: 0.5;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+        }
+
+        /* --- Desktop --- */
+        @media (min-width: 992px) {
+            .logo { font-size: 1.4rem; }
+            .nav-links {
+                display: flex;
+                gap: 2.5rem;
+            }
+            .nav-links a {
+                text-decoration: none;
+                color: var(--primary);
+                font-weight: 500;
+                font-size: 0.75rem;
+                text-transform: uppercase;
+                letter-spacing: 2px;
+                transition: color 0.3s;
+            }
+            .nav-links a:hover { color: var(--accent); }
+            .contact-layout {
+                grid-template-columns: 1fr 1.3fr;
+                align-items: start;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <a href="#" class="logo">Rhine's Cobbler Shop</a>
+        <div class="nav-right">
+            <div class="nav-links">
+                <a href="#about">The Shop</a>
+                <a href="#services">Repairs</a>
+                <a href="#reviews">Reviews</a>
+            </div>
+            <a href="tel:3038326017" class="btn">Call (303) 832-6017</a>
+        </div>
+    </nav>
+
+    <!-- HERO SECTION -->
+    <header class="hero">
+        <div class="hero-content reveal active">
+            <h1>Rhine's<br>Cobbler Shop</h1>
+        </div>
+    </header>
+
+    <!-- ABOUT SECTION -->
+    <section id="about" class="about-section section-padding">
+        <div class="about-content reveal">
+            <h2>Crafted with Integrity</h2>
+            <p>Tommy Rhine has anchored the Denver leather-repair community since 1979. As a master craftsman with over four decades of experience, he provides expert care for high-end boots, designer handbags, and daily footwear.</p>
+            <p>We are known for our dedication to the craft and our commitment to honest assessments. If your footwear can be restored to its former glory, we have the tools and the mastery to make it happen.</p>
+        </div>
+
+        <div class="highlight-grid reveal">
+            <div class="highlight-item">
+                <span>Legacy</span>
+                <h4>Black-Owned & Operated</h4>
+            </div>
+            <div class="highlight-item">
+                <span>Mastery</span>
+                <h4>Master Cobbler Tommy Rhine</h4>
+            </div>
+            <div class="highlight-item">
+                <span>Expertise</span>
+                <h4>High-End Boot Restoration</h4>
+            </div>
+            <div class="highlight-item">
+                <span>Philosophy</span>
+                <h4>Honest Repair Estimates</h4>
+            </div>
+        </div>
+    </section>
+
+    <!-- SERVICES SECTION -->
+    <section id="services" class="services section-padding">
+        <div class="reveal">
+            <!-- Header updated to avoid repetition of 'Master' -->
+            <h2 style="text-align: center; font-size: 2.8rem; margin-bottom: 1.5rem;">Artisan Restoration</h2>
+            <p style="text-align: center; max-width: 650px; margin: 0 auto; opacity: 0.7;">Quality leather repair and structural maintenance for valued goods.</p>
+        </div>
+
+        <div class="service-list">
+            <div class="service-card reveal">
+                <h3>Sole Replacement</h3>
+                <p>Full and half sole restoration for heritage boots including Red Wing Iron Rangers and Frye.</p>
+            </div>
+            <div class="service-card reveal">
+                <h3>Heel Repair</h3>
+                <p>Precision alignment and replacement for men's dress shoes and designer heels.</p>
+            </div>
+            <div class="service-card reveal">
+                <h3>Leather Conditioning</h3>
+                <p>Deep cleaning and professional hydration to prevent cracking and restore suppleness.</p>
+            </div>
+            <div class="service-card reveal">
+                <h3>Handbag Restoration</h3>
+                <p>Expert stitching, hardware replacement, and structural repair for designer purses.</p>
+            </div>
+            <div class="service-card reveal">
+                <h3>Zipper & Hardware</h3>
+                <p>Heavy-duty zipper repair and replacement for riding boots and leather jackets.</p>
+            </div>
+            <div class="service-card reveal">
+                <h3>Professional Shines</h3>
+                <p>Old-school buffing and polishing that provides lasting protection and a mirror finish.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- REVIEWS SECTION -->
+    <section id="reviews" class="testimonials section-padding">
+        <h2 class="reveal">Client Experiences</h2>
+        <div class="testimonial-grid">
+            <div class="testimonial-item reveal">
+                <p class="testimonial-text">"The last of a generation. He saved my five-year-old boots and the work was perfect. Impossibly affordable quality."</p>
+                <div class="testimonial-meta">Google Review</div>
+            </div>
+            <div class="testimonial-item reveal">
+                <p class="testimonial-text">"Always does a great job and provides honest feedback. He'll tell you if a repair is worth the investment—I appreciate that honesty."</p>
+                <div class="testimonial-meta">Google Review</div>
+            </div>
+            <div class="testimonial-item reveal">
+                <p class="testimonial-text">"He's resoled and fixed a ton of my shoes. Plus, he does an excellent job on items like purses. Exceptional for the quality provided."</p>
+                <div class="testimonial-meta">Yelp Review</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACT SECTION -->
+    <section id="contact" class="section-padding">
+        <div class="contact-layout">
+            <div class="contact-info reveal">
+                <h2>Visit the Shop</h2>
+
+                <div class="info-row">
+                    <label>Address</label>
+                    <p>221 E 17th Ave<br>Denver, CO 80203</p>
+                    <p style="font-size: 0.9rem; opacity: 0.5; margin-top: 0.75rem; letter-spacing: 0.5px;">North Capitol Hill / Uptown</p>
+                </div>
+
+                <div class="info-row">
+                    <label>Business Hours</label>
+                    <p>Mon – Fri: 9:00 AM – 6:00 PM</p>
+                    <p>Sat: 10:00 AM – 3:00 PM</p>
+                </div>
+
+                <div class="info-row">
+                    <label>Direct Line</label>
+                    <p><a href="tel:3038326017" style="color: var(--primary); text-decoration: none; font-weight: 600;">(303) 832-6017</a></p>
+                </div>
+
+                <div class="payment-notice">
+                    CASH ONLY SERVICE
+                </div>
+            </div>
+
+            <div class="reveal">
+                <div class="map-frame">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d12273.407550701637!2d-105.0055056!3d39.7317458!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x876c792a1e84f707%3A0x1fc55f5d583fc2e1!2sRhine&#39;s%20Shoe%20%26%20Boot%20Repair!5e0!3m2!1sen!2sus!4v1774200487609!5m2!1sen!2sus" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-logo">Rhine's Cobbler Shop</div>
+        <div class="footer-sub">Established 1979 | Denver, Colorado</div>
+        <p style="margin-top: 3rem; font-size: 0.8rem; opacity: 0.5; letter-spacing: 0.5px;">&copy; <span id="year"></span> Rhine's Shoe & Boot Repair. All Rights Reserved.</p>
+    </footer>
+
+    <script>
+        // Update copyright year
+        document.getElementById('year').textContent = new Date().getFullYear();
+
+        // Scroll Animation Logic
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+    </script>
+</body>
+</html>
