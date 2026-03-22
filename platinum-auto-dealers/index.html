@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
+    <!-- Open Graph Meta Tags -->
     <meta property="og:title" content="Platinum Auto Service | European & Specialized Auto Repair">
     <meta property="og:description" content="Littleton's premier dealership alternative for Audi, BMW, VW, Volvo, and Subaru. Expert service with transparent pricing.">
     <meta property="og:type" content="website">
@@ -11,6 +12,7 @@
     
     <title>Platinum Auto Service | Littleton, CO</title>
     
+    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;800&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
@@ -70,11 +72,12 @@
             transition: var(--transition);
             cursor: pointer;
             border: none;
+            text-align: center;
         }
 
         .btn-primary {
             background-color: var(--primary);
-            color: white;
+            color: white !important;
             box-shadow: 0 4px 14px rgba(37, 99, 235, 0.3);
         }
 
@@ -137,6 +140,7 @@
                 font-weight: 600;
                 font-size: 0.9rem;
                 color: var(--accent);
+                transition: var(--transition);
             }
             .nav-links a:hover {
                 color: var(--primary);
@@ -147,7 +151,7 @@
         #hero {
             height: 100vh;
             min-height: 600px;
-            background: linear-gradient(rgba(15, 23, 42, 0.7), rgba(15, 23, 42, 0.7)), 
+            background: linear-gradient(rgba(15, 23, 42, 0.75), rgba(15, 23, 42, 0.75)), 
                         url('https://images.unsplash.com/photo-1486262715619-67b85e0b08d3?auto=format&fit=crop&q=80&w=2000');
             background-size: cover;
             background-position: center;
@@ -162,25 +166,29 @@
             font-size: 2.5rem;
             margin-bottom: 1rem;
             font-weight: 800;
+            line-height: 1.1;
         }
 
         #hero p {
             font-size: 1.1rem;
-            margin-bottom: 2rem;
-            max-width: 600px;
+            margin-bottom: 2.5rem;
+            max-width: 700px;
             margin-left: auto;
             margin-right: auto;
             font-weight: 300;
+            opacity: 0.9;
         }
 
         @media (min-width: 768px) {
-            #hero h1 { font-size: 4rem; }
+            #hero h1 { font-size: 4.5rem; }
+            #hero p { font-size: 1.25rem; }
         }
 
         /* --- About --- */
         #about {
-            padding: 100px 0;
+            padding: 120px 0;
             background: white;
+            text-align: center;
         }
 
         .section-tag {
@@ -190,67 +198,78 @@
             display: block;
             margin-bottom: 0.5rem;
             text-transform: uppercase;
+            letter-spacing: 0.15em;
         }
 
-        .about-grid {
+        .about-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .usp-grid {
             display: grid;
-            grid-template-columns: 1fr;
-            gap: 4rem;
-            align-items: center;
-        }
-
-        @media (min-width: 768px) {
-            .about-grid { grid-template-columns: 1fr 1fr; }
-        }
-
-        .usp-list {
-            list-style: none;
-            margin-top: 2rem;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 4rem;
+            text-align: left;
         }
 
         .usp-item {
             display: flex;
             align-items: flex-start;
-            gap: 1rem;
-            margin-bottom: 1.5rem;
+            gap: 1.25rem;
         }
 
         .usp-icon {
             color: var(--primary);
             font-weight: 800;
+            background: rgba(37, 99, 235, 0.1);
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            flex-shrink: 0;
         }
 
         /* --- Services --- */
         #services {
             padding: 100px 0;
-            background: var(--bg-alt);
+            background: #f1f5f9;
         }
 
         .services-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 1.5rem;
             margin-top: 3rem;
         }
 
         .service-card {
             background: white;
-            padding: 2rem;
-            border-radius: 8px;
+            padding: 2.5rem;
+            border-radius: 12px;
             border-bottom: 4px solid transparent;
             transition: var(--transition);
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
         }
 
         .service-card:hover {
             border-color: var(--primary);
-            transform: translateY(-5px);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            transform: translateY(-8px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
         }
 
         .service-card h3 {
-            font-size: 1rem;
-            margin-bottom: 0.5rem;
+            font-size: 1.1rem;
+            margin-bottom: 0.75rem;
             color: var(--dark);
+        }
+
+        .service-card p {
+            font-size: 0.95rem;
+            color: var(--accent);
         }
 
         /* --- Reviews --- */
@@ -268,55 +287,69 @@
         }
 
         .review-card {
-            background: rgba(255,255,255,0.05);
-            padding: 2rem;
-            border-radius: 8px;
+            background: rgba(255,255,255,0.03);
+            padding: 2.5rem;
+            border-radius: 12px;
             position: relative;
+            border: 1px solid rgba(255,255,255,0.05);
         }
 
         .stars {
             color: #fbbf24;
-            margin-bottom: 1rem;
+            margin-bottom: 1.25rem;
+            font-size: 1.1rem;
         }
 
         .reviewer {
             display: block;
-            margin-top: 1.5rem;
             font-weight: 700;
             font-size: 0.9rem;
-            color: var(--accent);
+            color: var(--primary);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
         }
 
         /* --- Contact --- */
         #contact {
             padding: 100px 0;
+            background: white;
         }
 
         .contact-layout {
             display: grid;
             grid-template-columns: 1fr;
-            gap: 3rem;
+            gap: 4rem;
         }
 
         @media (min-width: 992px) {
-            .contact-layout { grid-template-columns: 1fr 2fr; }
+            .contact-layout { grid-template-columns: 1fr 1.5fr; }
         }
 
         .info-box {
-            margin-bottom: 2rem;
+            margin-bottom: 2.5rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px solid #f1f5f9;
         }
 
         .info-box h4 {
-            margin-bottom: 0.5rem;
-            font-size: 0.9rem;
+            margin-bottom: 0.75rem;
+            font-size: 0.8rem;
             color: var(--accent);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+
+        .info-content {
+            font-size: 1.1rem;
+            font-weight: 500;
         }
 
         .map-container {
             width: 100%;
-            height: 400px;
-            border-radius: 8px;
+            height: 500px;
+            border-radius: 12px;
             overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
         }
 
         .map-container iframe {
@@ -327,21 +360,10 @@
         /* --- Footer --- */
         footer {
             background: #0a0f1a;
-            color: rgba(255,255,255,0.6);
-            padding: 50px 0;
+            color: rgba(255,255,255,0.5);
+            padding: 60px 0;
             text-align: center;
             font-size: 0.85rem;
-        }
-
-        .rental-badge {
-            background: var(--success);
-            color: white;
-            padding: 0.2rem 0.6rem;
-            border-radius: 4px;
-            font-size: 0.7rem;
-            font-weight: 800;
-            display: inline-block;
-            margin-top: 1rem;
         }
     </style>
 </head>
@@ -356,59 +378,50 @@
                 <a href="#reviews">Reviews</a>
                 <a href="#contact">Contact</a>
             </div>
-            <a href="tel:3034711939" class="btn btn-primary" style="padding: 0.6rem 1.2rem; font-size: 0.75rem;">Call Now</a>
+            <a href="tel:3034711939" class="btn btn-primary" style="padding: 0.6rem 1.25rem; font-size: 0.75rem;">(303) 471-1939</a>
         </div>
     </nav>
 
     <section id="hero">
         <div class="container">
-            <span class="section-tag" style="color: white; opacity: 0.8;">Littleton's Premier Repair Shop</span>
+            <span class="section-tag" style="color: white; opacity: 0.8;">Littleton's Dealership Alternative</span>
             <h1>Performance. Precision. Trust.</h1>
-            <p>Your dealership alternative for Audi, BMW, VW, Volvo, and Subaru. Over 15 years of expert service in South Denver.</p>
+            <p>Expert specialized care for Audi, BMW, VW, Volvo, and Subaru. Over 15 years of master-certified service in South Denver.</p>
             <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
-                <a href="#contact" class="btn btn-primary">Schedule Appointment</a>
-                <a href="https://www.yelp.com/biz/platinum-auto-service-littleton" class="btn" style="background: white; color: var(--dark);">Get Pricing</a>
+                <a href="https://links.autorevos.com/widget/bookings/platinum-auto-service" target="_blank" class="btn btn-primary">Book an Appointment</a>
+                <a href="#contact" class="btn" style="background: white; color: var(--dark);">Request a Quote</a>
             </div>
         </div>
     </section>
 
     <section id="about">
         <div class="container reveal">
-            <div class="about-grid">
-                <div>
-                    <span class="section-tag">Since 2008</span>
-                    <h2>Expert Care by Owners Who Know Your Vehicle.</h2>
-                    <p style="margin-top: 1rem;">Founded by <strong>Sean Conway</strong> and <strong>Jim Tyerech</strong>, Platinum Auto Service was built on an education-first approach. We don't just fix cars; we explain the <em>why</em> and <em>how</em> before any work begins.</p>
-                    
-                    <ul class="usp-list">
-                        <li class="usp-item">
-                            <span class="usp-icon">✓</span>
-                            <div>
-                                <strong>Certified Expertise</strong>
-                                <p style="font-size: 0.9rem; color: var(--accent);">ASE and Factory Certified technicians, including Volvo Master Certification.</p>
-                            </div>
-                        </li>
-                        <li class="usp-item">
-                            <span class="usp-icon">✓</span>
-                            <div>
-                                <strong>Premium Amenities</strong>
-                                <p style="font-size: 0.9rem; color: var(--accent);">Enjoy our business center, free Wi-Fi, and refreshments while you wait.</p>
-                            </div>
-                        </li>
-                        <li class="usp-item">
-                            <span class="usp-icon">✓</span>
-                            <div>
-                                <strong>Transparent Pricing</strong>
-                                <p style="font-size: 0.9rem; color: var(--accent);">Factory-grade diagnostics and OEM parts at a fraction of dealership costs.</p>
-                            </div>
-                        </li>
-                    </ul>
+            <div class="about-content">
+                <span class="section-tag">Established 2008</span>
+                <h2 style="font-size: 2.5rem; margin-bottom: 1.5rem;">Expert care by specialists who drive what you drive.</h2>
+                <p style="font-size: 1.2rem; color: var(--accent);">Platinum Auto Service provides a high-end experience without the dealership price tag. We believe in an education-first approach—explaining every repair clearly before we start so you can make informed decisions about your vehicle.</p>
+            </div>
+            
+            <div class="usp-grid">
+                <div class="usp-item">
+                    <span class="usp-icon">✓</span>
+                    <div>
+                        <strong>Master Certified Expertise</strong>
+                        <p style="font-size: 0.9rem; color: var(--accent); margin-top: 0.5rem;">Our team includes ASE and Volvo Master Factory Certified technicians with specialized import training.</p>
+                    </div>
                 </div>
-                <div style="position: relative;">
-                    <img src="https://images.unsplash.com/photo-1632733711679-5292d6863670?auto=format&fit=crop&q=80&w=800" alt="Auto Mechanic" style="width: 100%; border-radius: 8px; box-shadow: 0 20px 40px rgba(0,0,0,0.1);">
-                    <div style="position: absolute; bottom: -20px; right: -20px; background: var(--primary); color: white; padding: 2rem; border-radius: 8px; display: none; @media (min-width: 768px) { display: block; }">
-                        <span style="font-size: 2rem; font-weight: 800; display: block;">15+</span>
-                        <span style="text-transform: uppercase; font-size: 0.7rem; letter-spacing: 0.1em;">Years of Excellence</span>
+                <div class="usp-item">
+                    <span class="usp-icon">✓</span>
+                    <div>
+                        <strong>Premium Amenities</strong>
+                        <p style="font-size: 0.9rem; color: var(--accent); margin-top: 0.5rem;">Wait in comfort with our dedicated business center, high-speed Wi-Fi, and complimentary refreshments.</p>
+                    </div>
+                </div>
+                <div class="usp-item">
+                    <span class="usp-icon">✓</span>
+                    <div>
+                        <strong>Transparent Pricing</strong>
+                        <p style="font-size: 0.9rem; color: var(--accent); margin-top: 0.5rem;">We use factory-grade diagnostics and OEM parts while maintaining prices significantly lower than local dealers.</p>
                     </div>
                 </div>
             </div>
@@ -418,35 +431,37 @@
     <section id="services">
         <div class="container">
             <div style="text-align: center;" class="reveal">
-                <span class="section-tag">What We Do</span>
-                <h2>Specialized Services</h2>
-                <p style="max-width: 600px; margin: 1rem auto; color: var(--accent);">Comprehensive maintenance and repair for European imports and high-performance vehicles.</p>
+                <span class="section-tag">Our Specialties</span>
+                <h2>Comprehensive Service</h2>
+                <p style="max-width: 600px; margin: 1.5rem auto 0; color: var(--accent);">From routine maintenance to complex engine diagnostics, we ensure your vehicle performs at its peak.</p>
             </div>
 
             <div class="services-grid">
                 <div class="service-card reveal">
+                    <h3>European Import Care</h3>
+                    <p>Brand-specific expertise for Audi, BMW, VW, Volvo, and Subaru models using genuine parts and factory-grade diagnostic tools.</p>
+                </div>
+                <div class="service-card reveal">
                     <h3>Factory Maintenance</h3>
-                    <p style="font-size: 0.85rem; color: var(--accent);">Full 30k/60k/90k service to keep your factory warranty intact.</p>
+                    <p>Complete 30k, 60k, and 90k mile scheduled services to keep your factory warranty valid and your engine performing optimally.</p>
                 </div>
                 <div class="service-card reveal">
-                    <h3>Diagnostics</h3>
-                    <p style="font-size: 0.85rem; color: var(--accent);">Advanced electrical and check engine light troubleshooting using OEM tools.</p>
+                    <h3>Advanced Diagnostics</h3>
+                    <p>Master-level troubleshooting for check engine lights and complex electrical system issues using state-of-the-art equipment.</p>
                 </div>
                 <div class="service-card reveal">
-                    <h3>Brake Systems</h3>
-                    <p style="font-size: 0.85rem; color: var(--accent);">Complete system repair, rotor replacement, and fluid flushes.</p>
+                    <h3>Brake & Suspension</h3>
+                    <p>Precision brake system repair, including performance fluid flushes, and expert suspension work for a smooth, safe ride.</p>
                 </div>
                 <div class="service-card reveal">
-                    <h3>Transmission</h3>
-                    <p style="font-size: 0.85rem; color: var(--accent);">Specialized service and overhaul for European automatic and manual systems.</p>
+                    <h3>Transmission Service</h3>
+                    <p>Specialized fluid service and mechanical overhauls for both European automatic and manual transmissions.</p>
                 </div>
                 <div class="service-card reveal">
-                    <h3>Timing & Cooling</h3>
-                    <p style="font-size: 0.85rem; color: var(--accent);">Critical timing belt replacements and radiator system repairs.</p>
-                </div>
-                <div class="service-card reveal">
-                    <h3>Specialized Import Repair</h3>
-                    <p style="font-size: 0.85rem; color: var(--accent);">Expert care tailored for Audi, BMW, VW, Volvo, and Subaru.</p>
+                    <div style="height: 100%; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center;">
+                        <h3 style="margin-bottom: 0.5rem;">And More!</h3>
+                        <p>Timing belts, cooling systems, electrical repairs, and everything your vehicle needs to stay on the road.</p>
+                    </div>
                 </div>
             </div>
         </div>
@@ -455,24 +470,25 @@
     <section id="reviews">
         <div class="container reveal">
             <div style="text-align: center;">
-                <span class="section-tag" style="color: var(--primary);">Testimonials</span>
-                <h2>5.0 Stars | 197+ Reviews</h2>
+                <span class="section-tag" style="color: var(--primary);">What Our Clients Say</span>
+                <h2>4.8+ Star Rated Excellence</h2>
+                <p style="margin-top: 1rem; opacity: 0.7;">Based on 150+ verified reviews from Google and Yelp</p>
             </div>
 
             <div class="reviews-grid">
                 <div class="review-card">
                     <div class="stars">★★★★★</div>
-                    <p>"These guys are honest, straight-shooters that make experiencing a broken down car not-so-terrible. I would and do recommend them to any Volvo, Audi or Subaru driver."</p>
+                    <p style="font-style: italic; opacity: 0.9; margin-bottom: 1.5rem;">"These guys are honest, straight-shooters that make experiencing a broken down car not-so-terrible. I would and do recommend them to any Volvo, Audi or Subaru driver."</p>
                     <span class="reviewer">— Tristan W.</span>
                 </div>
                 <div class="review-card">
                     <div class="stars">★★★★★</div>
-                    <p>"Sean, Jimmy, and Trent are the best. They offer the best service for my Audi at the best price. I truly believe they are the best auto repair shop in the state of Colorado."</p>
+                    <p style="font-style: italic; opacity: 0.9; margin-bottom: 1.5rem;">"Sean, Jimmy, and Trent are the best. They offer the best service for my Audi at the best price. I truly believe they are the best auto repair shop in Colorado."</p>
                     <span class="reviewer">— Verified Audi Owner</span>
                 </div>
                 <div class="review-card">
                     <div class="stars">★★★★★</div>
-                    <p>"Reasonable, fast, and trustworthy... our bill was less than half of what the dealer was going to charge us. Great shop, glad I found it."</p>
+                    <p style="font-style: italic; opacity: 0.9; margin-bottom: 1.5rem;">"Reasonable, fast, and trustworthy... our bill was less than half of what the dealer was going to charge us. Great shop, glad I found it."</p>
                     <span class="reviewer">— Google User</span>
                 </div>
             </div>
@@ -483,33 +499,41 @@
         <div class="container reveal">
             <div class="contact-layout">
                 <div>
-                    <span class="section-tag">Get In Touch</span>
-                    <h2>Location & Hours</h2>
-                    <p style="margin-bottom: 2.5rem; color: var(--accent);">Visit our shop in the South Denver / Norwood neighborhood.</p>
+                    <span class="section-tag">Visit the Shop</span>
+                    <h2>Location & Details</h2>
+                    <p style="margin-bottom: 3rem; color: var(--accent); font-size: 1.1rem;">Located in the South Denver / Norwood neighborhood.</p>
 
                     <div class="info-box">
-                        <h4>Phone</h4>
-                        <a href="tel:3034711939" style="font-size: 1.5rem; font-weight: 700; color: var(--primary);">(303) 471-1939</a>
+                        <h4>Service Hours</h4>
+                        <div class="info-content">
+                            <div style="display: flex; justify-content: space-between; max-width: 280px; margin-bottom: 0.5rem;">
+                                <span>Mon – Fri:</span>
+                                <span style="font-weight: 700;">7:30 AM - 5:30 PM</span>
+                            </div>
+                            <div style="display: flex; justify-content: space-between; max-width: 280px; opacity: 0.4;">
+                                <span>Sat – Sun:</span>
+                                <span>Closed</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="info-box">
+                        <h4>Direct Line</h4>
+                        <div class="info-content">
+                            <a href="tel:3034711939" style="font-size: 1.75rem; font-weight: 800; color: var(--primary);">(303) 471-1939</a>
+                        </div>
                     </div>
 
                     <div class="info-box">
                         <h4>Address</h4>
-                        <p>3753 Norwood Dr<br>Littleton, CO 80125</p>
+                        <div class="info-content">
+                            3753 Norwood Dr<br>Littleton, CO 80125
+                        </div>
                     </div>
-
-                    <div class="info-box">
-                        <h4>Business Hours</h4>
-                        <p style="font-size: 0.9rem;">
-                            Mon – Fri: 7:30 AM - 5:30 PM<br>
-                            Sat – Sun: Closed
-                        </p>
-                    </div>
-
-                    <span class="rental-badge">Rental Car Available Upon Request</span>
                 </div>
 
                 <div class="map-container">
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3212.3548012602264!2d-105.04029402388059!3d39.555770071591006!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x876b7df1550012ed%3A0x318105be19e6c339!2sPlatinum%20Auto%20Service!5e1!3m2!1sen!2sus!4v1774194389228!5m2!1sen!2sus" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3212.3548012602264!2d-105.04029402388059!3d39.555770071591006!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x876b7df1550012ed%3A0x318105be19e6c339!2sPlatinum%20Auto%20Service!5e1!3m2!1sen!2sus!4v1774194389228!5m2!1sen!2sus" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                 </div>
             </div>
         </div>
@@ -517,27 +541,25 @@
 
     <footer>
         <div class="container">
-            <p style="font-weight: 700; color: white; margin-bottom: 1rem;">PLATINUM AUTO SERVICE</p>
-            <p>(303) 471-1939 • 3753 Norwood Dr, Littleton, CO 80125</p>
-            <p style="margin-top: 2rem;">&copy; 2026 Platinum Auto Service. All Rights Reserved.</p>
+            <p style="font-weight: 800; color: white; margin-bottom: 1.5rem; letter-spacing: 0.1em;">PLATINUM AUTO SERVICE</p>
+            <p style="margin-bottom: 0.5rem;">(303) 471-1939 • 3753 Norwood Dr, Littleton, CO 80125</p>
+            <p style="opacity: 0.6;">&copy; 2026 Platinum Auto Service. All Rights Reserved.</p>
         </div>
     </footer>
 
     <script>
-        // Simple Scroll Reveal Logic
-        const observerOptions = {
-            threshold: 0.1
-        };
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('active');
+        // Scroll Reveal Animation
+        const revealOnScroll = () => {
+            const elements = document.querySelectorAll('.reveal');
+            elements.forEach(el => {
+                const rect = el.getBoundingClientRect();
+                if (rect.top < window.innerHeight - 100) {
+                    el.classList.add('active');
                 }
             });
-        }, observerOptions);
-
-        document.querySelectorAll('.reveal').forEach((el) => observer.observe(el));
+        };
+        window.addEventListener('scroll', revealOnScroll);
+        revealOnScroll();
     </script>
 </body>
 </html>
